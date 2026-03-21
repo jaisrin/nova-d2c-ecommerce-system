@@ -181,7 +181,7 @@ The Return Details screen acts as a multi-stakeholder decision hub.
 
 ### Wireframe
 
-![Return Details](../assets/admin_return_details.png)
+![Return Details](../assets/admin__eturn_details.png)
 
 #### Stakeholders
 
