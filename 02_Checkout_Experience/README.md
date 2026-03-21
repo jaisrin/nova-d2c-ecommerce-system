@@ -22,8 +22,10 @@ The address selection follows a two-step interaction model to ensure delivery ac
 
 ### Wireframe
 
-![Checkout Address Step](checkout_address.png)  
 ![Select Address](address.png)
+
+![Checkout Address Step](checkout_address.png)  
+
 
 ---
 
