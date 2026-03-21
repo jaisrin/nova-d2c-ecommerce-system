@@ -1,123 +1,272 @@
-## Checkout Experience
+# Checkout Experience
 
-This section details the checkout flow, focusing on validation logic, system behavior, and user experience optimization to ensure a seamless and conversion-driven purchase process.
+## Overview
 
----
-
-### 1. Entry to Checkout
-
-- User clicks "Proceed to Checkout" from cart
-
-**System Behavior:**
-- If user is not logged in → redirect to login/signup
-- After successful login → redirect back to checkout
+The checkout experience is the final stage of the purchase journey where users provide delivery details, apply offers, validate pricing, and complete payment. This module ensures accuracy, transparency, and successful order placement.
 
 ---
 
-### 2. Address Selection (Mandatory)
+## Checkout Flow
 
-- User must select or add a delivery address
-
-**Validation:**
-- "Continue to payment" remains disabled until a valid address is selected
+Cart → Authentication → Address Selection → Coupon Application → Pricing Validation → Payment → Order Confirmation
 
 ---
 
-### 3. Delivery & Shipping Validation
+## 1. Address Selection & Validation
 
-- System validates serviceability based on delivery location
-- Displays available delivery options
+### Overview
 
-**Edge Cases:**
-- If location is not serviceable → show error and restrict progression
+The address selection follows a two-step interaction model to ensure delivery accuracy. While a default address is pre-selected for convenience, the user must explicitly confirm the address before proceeding.
 
 ---
 
-### 4. Coupon Application
+### Wireframe
 
-Users can apply coupons in two ways:
-- Manual entry of coupon code
-- Selecting from available coupon list
+**Checkout – Initial State**
 
-**Coupon Visibility:**
-- Eligible coupons are displayed as active and selectable
-- Non-eligible coupons are visible but grayed out
+![Checkout Address Step](checkout_address.png)
 
-**Eligibility Criteria:**
-- Minimum order value
-- Product/category applicability
-- User eligibility (e.g., new user, first order)
-- Expiry date
+**Address Selection Screen**
 
-**System Behavior:**
-- Selecting or applying a valid coupon updates pricing instantly
-- Attempting to apply an invalid coupon shows an error message
+![Select Address](address.png)
+
+---
+
+### System Behavior
+
+- Default address is pre-selected but NOT auto-confirmed
+- User must explicitly confirm address
+- Only one address can be selected at a time
+- Address selection is mandatory before proceeding
+
+---
+
+### Validation Logic
+
+- Block checkout if no address is selected
+- Show inline error:
+  **"Please select a delivery address to proceed"**
+
+---
+
+### Business Logic
+
+- Prevents incorrect deliveries
+- Ensures delivery feasibility before payment
+- Reduces return-to-origin (RTO)
+
+---
+
+### Edge Cases
+
+- No saved addresses → force add new address
+- Address not serviceable (pincode restriction)
+- User edits or deletes address mid-checkout
+
+---
+
+## 2. Coupons & Offers
+
+### Overview
+
+Users can apply discounts either manually or by selecting from available coupons.
+
+---
+
+### Wireframe
+
+![Coupons](coupons.png)
+
+---
+
+### System Behavior
+
+- Users can apply coupons in two ways:
+
+  1. Manual entry via coupon input field  
+  2. Selection from available coupon list  
+
+- Eligible coupons are highlighted
+- Ineligible coupons are disabled
 - Only one coupon can be applied at a time
-
-**UX Consideration:**
-Displaying both eligible and ineligible coupons improves transparency and encourages users to increase cart value to unlock offers.
-
----
-
-### 5. Pricing Calculation
-
-The system dynamically updates the final payable amount including:
-
-- Product total
-- Discounts (coupons/offers)
-- Shipping charges
-
-**Tax Handling:**
-- Prices displayed to users are tax-inclusive
-- Tax is not shown as a separate line item during checkout
-- Detailed tax breakdown is provided in the final invoice
-
-**System Behavior:**
-- Pricing updates in real-time based on coupon application and cart changes
+- Applying coupon updates pricing instantly
+- Removing coupon recalculates total
 
 ---
 
-### 6. Inventory Validation
+### Business Logic
 
-- Before payment, the system validates stock availability
+- Coupon eligibility based on:
+  - Minimum cart value
+  - Product/category constraints
+  - User eligibility (e.g., first-time user)
 
-**System Behavior:**
-- If item is out of stock → checkout is blocked and user is notified
-- Prevents overselling and order failures
+- Supports:
+  - Flat discounts
+  - Percentage discounts
 
----
-
-### 7. CTA State Management
-
-- "Continue to Payment" is enabled only when:
-  - Address is selected
-  - All validations are successfully completed
+- Payment offers:
+  - Applied only when eligible payment method is selected
 
 ---
 
-### 8. Payment Redirection
+### Validation Logic
 
-- User proceeds to payment gateway after all validations pass
-
----
-
-### 9. Payment Outcome Handling
-
-**Success:**
-- Order is successfully created
-- Order ID is generated
-- User is redirected to order confirmation page
-
-**Failure:**
-- Error message is displayed
-- User is given option to retry payment
+- Invalid or expired coupons cannot be applied
+- Coupon is revalidated on cart updates
+- Only one coupon allowed at a time
 
 ---
 
-### Key Focus Areas
+### Edge Cases
 
-- Validation-driven progression
-- Real-time pricing updates
-- Error handling and recovery
-- Transparent yet optimized user experience
-- Conversion-focused checkout design
+- Coupon becomes invalid after cart change
+- Payment method mismatch for bank offers
+- Network failure during coupon validation
+
+---
+
+## 3. Pricing & Billing
+
+### Overview
+
+The pricing module calculates the final payable amount based on cart value, discounts, and shipping rules.
+
+---
+
+### System Behavior
+
+- Subtotal = sum of (item price × quantity)
+- Discount applied based on coupon
+- Shipping calculated based on threshold
+- Final total updated dynamically
+
+---
+
+### Business Logic
+
+- Free shipping above threshold (e.g., INR 899)
+- Prepaid discounts may apply
+- Taxes included in final pricing
+
+---
+
+### Validation Logic
+
+- Pricing must refresh on any cart change
+- Prevent mismatch between frontend and backend pricing
+
+---
+
+### Edge Cases
+
+- Price updated after inventory or backend sync
+- Shipping not available for location
+
+---
+
+## 4. Payment
+
+### Overview
+
+The payment step enables users to complete the transaction using multiple payment methods. It supports saved payment options, new payment entry, and real-time validation based on applied offers.
+
+---
+
+### Wireframe
+
+![Payment](payment.png)
+
+---
+
+### System Behavior
+
+- User can:
+  - Select from saved payment methods
+  - Add a new payment method
+- Address can be changed directly from payment screen
+- Payment method selection updates applicable offers dynamically
+- On clicking “Pay”:
+  - Redirect to payment gateway (if applicable)
+  - Await success/failure response
+
+---
+
+### Business Logic
+
+- Supports:
+  - Cards
+  - UPI
+  - Net Banking
+  - Cash on Delivery (COD)
+
+- Prepaid incentives may apply
+- Bank/UPI offers:
+  - Applied only if correct payment method is used
+
+- Order is created only after successful payment (except COD)
+
+---
+
+### Validation Logic
+
+- Payment method selection is mandatory
+- Card details must be valid
+- If coupon is tied to a payment method:
+  - Validate against selected method
+  - Block or show error if mismatch
+
+---
+
+### Error Handling
+
+- Payment failure → show retry option
+- Gateway timeout → show pending state
+- Coupon-payment mismatch:
+  **"Selected offer is not applicable for this payment method"**
+- Invalid card → field-level errors
+
+---
+
+### Edge Cases
+
+- Payment success but order not created
+- Double payment attempts
+- User exits mid-payment
+- Network failure
+- COD unavailable for location
+- Expired saved cards
+
+---
+
+## 5. Order Confirmation
+
+### Overview
+
+After successful payment, the system confirms the order and communicates it to the user.
+
+---
+
+### System Behavior
+
+- Order ID generated
+- Confirmation screen displayed
+- Email/SMS sent
+- Invoice generated
+
+---
+
+### Business Logic
+
+- Inventory deducted after payment
+- Order status set to "Placed"
+
+---
+
+### Edge Cases
+
+- Payment success but confirmation fails
+- Notification failure
+- Duplicate order prevention
+
+
