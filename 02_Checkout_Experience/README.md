@@ -293,3 +293,85 @@ The payment step enables users to complete the transaction using multiple paymen
 - Allowing address edit at payment stage improves conversion
 - Clear failure messaging builds user trust
 - Validating coupon–payment dependency prevents misuse of offers
+
+## 5. Order Confirmation
+
+### Overview
+
+Order confirmation is the final step of the checkout process, where the system confirms successful order placement and provides users with essential order details, next steps, and navigation options.
+
+---
+
+### Wireframe
+
+![Order Confirmation](order_confirmation.png)
+
+---
+
+### UI Components
+
+**Success Message:**
+- “Thank you for your order!”
+- Confirmation indicator (visual/illustration)
+
+**Order Details:**
+- Order ID
+- Confirmation message
+- Instruction to track order
+
+**Primary CTAs:**
+- Track Order (redirects to Order Tracking page)
+- Continue Shopping (redirects to homepage)
+
+---
+
+### System Behavior
+
+- Triggered only after:
+  - Successful payment (for prepaid orders)
+  - Order creation (for COD orders)
+
+- System performs:
+  - Order ID generation
+  - Order record creation
+  - Inventory deduction
+  - Confirmation screen rendering
+
+- Notifications triggered:
+  - Email confirmation
+  - SMS confirmation (if enabled)
+
+---
+
+### Business Logic
+
+- Order is considered “Placed” at this stage
+- Inventory is locked/deducted
+- Payment status updated:
+  - Paid (Prepaid)
+  - Pending (COD)
+
+---
+
+### Validation Logic
+
+- Confirmation page should load only after successful backend validation
+- Prevent duplicate order creation on refresh
+
+---
+
+### Edge Cases
+
+- Payment success but confirmation page fails to load
+- Duplicate order creation due to multiple retries
+- Network interruption after payment success
+- Delay in notification delivery (email/SMS)
+
+---
+
+### Product Thinking
+
+- Clear confirmation builds user trust
+- Immediate access to tracking improves post-purchase experience
+- Dual CTAs guide users toward next actions (track vs explore)
+- Reduces anxiety after payment completion
