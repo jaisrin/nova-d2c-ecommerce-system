@@ -49,7 +49,7 @@ Allows creation of new admin accounts.
 
 ### Wireframe
 
-![Admin Sign Up](admin_sign_up.png)
+![Admin Sign Up](admin_signup.png)
 
 ---
 
@@ -109,7 +109,7 @@ Allows admins to reset their password.
 
 ### Wireframe
 
-![Email Confirmation](email_confirmation_message.png)
+![Email Confirmation](email_confirmation.png)
 ---
 
 ### Features
