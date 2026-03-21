@@ -85,17 +85,17 @@ Allows users to view, track, and manage all orders with full visibility into ord
 
 ---
 
-## Order Details & Tracking
+## Track Order
 
 ### Overview
 
-Provides a detailed view of a selected order, including real-time tracking, product information, delivery details, and payment summary.
+Provides real-time visibility into order status, delivery progress, and order-related details, ensuring transparency and trust throughout the fulfillment journey.
 
 ---
 
 ### Wireframe
 
-![Order Details](order_details_tracking.png)
+![Track Order](track_order.png)
 
 ---
 
