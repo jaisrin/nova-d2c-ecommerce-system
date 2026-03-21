@@ -185,3 +185,111 @@ The Product Listing Page (PLP) displays a collection of products based on select
 - Drives conversion by surfacing relevant products
 - Prevents drop-offs through clear navigation and feedback
 - Supports scalability with large product catalogs
+---
+
+## 3. Product Detail Page (PDP)
+
+### Overview
+
+The Product Detail Page (PDP) provides detailed information about a selected product, enabling users to evaluate, compare, and make purchase decisions. It is a critical conversion point in the user journey.
+
+---
+
+### Wireframe
+
+![PDP](pdp.png)
+
+---
+
+### UI Components
+
+**Product Media Section:**
+- Image gallery with thumbnails
+- Zoom/hover preview (optional)
+
+**Product Information:**
+- Product name
+- Price
+- Ratings and review count
+- Short description
+- Key highlights (bullet points)
+
+**Purchase Actions:**
+- Quantity selector (+ / -)
+- Add to Cart CTA
+- Buy Now CTA
+
+**Delivery Information:**
+- Pincode input
+- Delivery estimate
+- Shipping details
+
+**Product Details Tabs:**
+- Description
+- Material & Care
+- Reviews
+
+**Reviews Section:**
+- Rating breakdown
+- User comments
+- Add review option
+
+**Recommendations:**
+- “You may also like” products
+
+---
+
+### System Behavior
+
+- Product data loads dynamically based on selected item
+- Selecting quantity updates cart intent
+- Add to Cart updates cart in real-time
+- Buy Now redirects to checkout flow
+- Pincode check fetches delivery estimate
+- Reviews load dynamically (lazy loading)
+- Wishlist icon toggles product state
+
+---
+
+### Business Logic
+
+- Pricing includes:
+  - Base price
+  - Discounts (if applicable)
+- Ratings calculated from aggregated user reviews
+- Inventory validation before adding to cart
+- Delivery estimate based on location (pincode logic)
+- Recommendation engine:
+  - Similar products
+  - Recently viewed / popular items
+
+---
+
+### Key Validations
+
+- Quantity cannot be less than 1
+- Cannot add out-of-stock product to cart
+- Pincode must be valid for delivery check
+- Review submission requires valid input
+- Add to Cart disabled if mandatory selections (e.g., size) are missing
+
+---
+
+### Edge Cases
+
+- Product out of stock
+- Invalid pincode entered
+- No reviews available
+- Image load failure → fallback image
+- Price mismatch due to backend update
+- Recommendation list empty → fallback products
+
+---
+
+### Product Thinking
+
+- PDP is the primary conversion point
+- Combines trust signals (reviews, ratings)
+- Reduces uncertainty with delivery info
+- Encourages purchase through recommendations
+- Provides clear CTAs for both cart and instant purchase
