@@ -24,12 +24,12 @@ The address selection follows a two-step interaction model to ensure delivery ac
 
 **Checkout – Initial State**
 
-![Checkout Address Step](checkout_address.png)
-
-**Address Selection Screen**
 
 ![Select Address](address.png)
 
+**Address Selection Screen**
+
+![Checkout Address Step](checkout_address.png)
 ---
 
 ### System Behavior
