@@ -472,3 +472,102 @@ Authentication is required before checkout to capture user details, enable order
 - Ensures data capture before checkout
 - Minimizes drop-offs with seamless redirect post-login
 - Supports multiple login methods for flexibility
+### Address Selection & Validation
+
+#### Wireframe
+
+![Select Address](address.png)
+
+---
+
+#### Overview
+
+The address selection in checkout follows a two-step interaction model to ensure delivery accuracy. While a default address is pre-selected for convenience, the user must explicitly confirm the address before proceeding.
+
+---
+
+#### Interaction Flow
+
+1. User lands on checkout screen
+2. "Select Delivery Address" CTA is displayed
+3. User clicks CTA
+4. Address selection screen opens
+5. Default address is pre-selected
+6. User must explicitly confirm or change the address
+7. User clicks "Next" to proceed
+
+---
+
+#### UI Components
+
+- "Select Delivery Address" CTA (entry point)
+- List of saved addresses
+- Address label (Home, Office, etc.)
+- Full address details
+- Phone number
+- Pre-selected default address (radio button)
+- Edit address option
+- Delete address option
+- Add new address CTA
+- Navigation CTAs:
+  - Back
+  - Next
+
+---
+
+#### System Behavior
+
+- Default address is pre-selected but NOT auto-confirmed
+- User must explicitly select/confirm an address
+- Only one address can be selected at a time
+- Clicking "Next" proceeds only after confirmation
+- Clicking "Back" returns to previous step
+
+---
+
+#### Validation Logic
+
+- Address confirmation is mandatory before proceeding
+- If user attempts to proceed without selecting/confirming address:
+  - System blocks progression
+  - Displays inline error message:
+    **"Please select a delivery address to proceed"**
+
+- Validation occurs on CTA click (Next / Continue)
+
+---
+
+#### Error Handling (UX Behavior)
+
+- Error is shown inline near the address section
+- No page refresh or disruptive UI behavior
+- Avoids layout shifts (no "jumpy" experience)
+- Guides user clearly to complete action
+
+---
+
+#### Business Logic
+
+- Prevents incorrect order placement to unintended address
+- Reduces delivery failures and return-to-origin (RTO)
+- Ensures delivery feasibility before payment
+- Balances speed (default selection) with accuracy (explicit confirmation)
+
+---
+
+#### Edge Cases
+
+- No saved addresses → force user to add new address
+- User deletes default address → next available becomes default
+- Address not serviceable (invalid pincode)
+- User edits address during checkout
+- Multiple similar addresses causing confusion
+
+---
+
+#### Product Thinking
+
+- Uses a two-step confirmation model to reduce user errors
+- Ensures critical delivery data is validated before payment
+- Maintains low friction with pre-selection while enforcing control
+- Improves delivery success rate and operational efficiency
