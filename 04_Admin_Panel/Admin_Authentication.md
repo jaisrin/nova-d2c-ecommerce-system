@@ -80,7 +80,8 @@ Confirms admin account via email.
 
 ### Wireframe
 
-![Email Confirmation](email_confirmation_message.png)
+
+![Forgot Password](admin_forgot_password.png)
 
 ---
 
@@ -108,8 +109,7 @@ Allows admins to reset their password.
 
 ### Wireframe
 
-![Forgot Password](admin_forgot_password.png)
-
+![Email Confirmation](email_confirmation_message.png)
 ---
 
 ### Features
