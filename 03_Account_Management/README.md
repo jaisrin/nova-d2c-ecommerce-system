@@ -12,7 +12,7 @@ The experience is designed to be self-service driven, reducing dependency on cus
 
 ### Overview
 
-Users can access account-related functionalities through a dedicated profile section, typically via a dropdown or sidebar navigation. This acts as the entry point to all account features.
+Users can access account-related functionalities through a profile section, typically via a dropdown or sidebar navigation. This acts as the entry point to all account features.
 
 ---
 
@@ -39,7 +39,7 @@ Users can access account-related functionalities through a dedicated profile sec
 
 - Accessible only for logged-in users  
 - Persistent navigation across account sections  
-- Active section highlighted for clarity  
+- Active section highlighted  
 
 ---
 
@@ -47,7 +47,7 @@ Users can access account-related functionalities through a dedicated profile sec
 
 ### Overview
 
-Allows users to view and manage all past and active orders, along with real-time status tracking and contextual actions.
+Allows users to view, track, and manage all orders with full visibility into order status, details, and actions.
 
 ---
 
@@ -59,15 +59,16 @@ Allows users to view and manage all past and active orders, along with real-time
 
 ### Features
 
-- View list of orders with key details  
+- List of all orders with key details  
 - Status indicators:
-  - Placed  
+  - Order Placed  
   - Packed  
   - Shipped  
   - Delivered  
   - Cancelled  
   - Payment Failed  
-- Actions:
+
+- Contextual actions:
   - Cancel Order  
   - Retry Payment  
   - Reorder  
@@ -77,13 +78,97 @@ Allows users to view and manage all past and active orders, along with real-time
 
 ### Logic
 
-- Cancel Order:
-  - Available only before order is packed  
-- Retry Payment:
-  - Enabled for failed transactions  
-- Return/Replace:
-  - Enabled only after delivery  
-- Status-based UI rendering  
+- Cancel Order available only before packing  
+- Retry Payment enabled for failed transactions  
+- Return/Replace enabled only after delivery  
+- UI adapts based on order status  
+
+---
+
+## Order Details & Tracking
+
+### Overview
+
+Provides a detailed view of a selected order, including real-time tracking, product information, delivery details, and payment summary.
+
+---
+
+### Wireframe
+
+![Order Details](order_details_tracking.png)
+
+---
+
+### Features
+
+- Visual order progress tracker:
+  - Order Placed  
+  - Packed  
+  - Shipped  
+  - Out for Delivery  
+  - Delivered  
+
+- Current stage highlighted  
+- Delivery status message  
+- Estimated delivery date  
+
+- Product details:
+  - Image  
+  - Name  
+  - Size  
+  - Quantity  
+  - Price  
+
+- Payment method (masked details)  
+- Delivery address  
+- Order summary (Subtotal, Discount, Delivery, Total)  
+
+- Order activity timeline (timestamps)  
+- Download invoice option  
+
+---
+
+### Logic
+
+- Tracker updates dynamically based on status  
+- Completed steps marked visually  
+- Future steps inactive  
+- Activity logs system-generated  
+
+---
+
+### Cancel Order Logic
+
+- “Cancel Order” CTA visible only when:
+  - Status = "Order Placed"
+
+- Hidden once order is "Packed"  
+
+- On click:
+  - Confirmation modal:
+    - “Are you sure you want to cancel this order?”
+    - Confirm / Cancel actions  
+
+- On confirmation:
+  - Status updated to "Cancelled"  
+
+- Refund Handling:
+  - Prepaid → Refund to original method (5–7 days)  
+  - COD → No refund required  
+
+- Cancelled orders:
+  - Tagged clearly  
+  - Only “Reorder” allowed  
+
+---
+
+### UX Behavior
+
+- Cancel CTA shown contextually:
+  - Order History → Actions column  
+  - Order Details → Near status section  
+
+- Invalid actions are hidden (not shown as errors)  
 
 ---
 
@@ -107,7 +192,7 @@ Enables users to initiate return or replacement requests through a structured an
 
 - Reason selection (mandatory)  
 - Optional comments  
-- Image/video upload (mandatory where applicable)  
+- Image/video upload (mandatory if required)  
 - Return or Replace selection  
 - Confirmation before submission  
 
@@ -116,10 +201,10 @@ Enables users to initiate return or replacement requests through a structured an
 ### Logic
 
 - Submission blocked without reason  
-- Upload required for certain categories  
-- Request moves to “Under Review” state  
-- SLA: 24–48 hours for validation  
-- Status updated post approval/rejection  
+- Upload required where applicable  
+- Request enters “Under Review” state  
+- SLA: 24–48 hours  
+- Status updated post validation  
 
 ---
 
@@ -127,7 +212,7 @@ Enables users to initiate return or replacement requests through a structured an
 
 ### Overview
 
-Allows users to manage delivery addresses for faster and more accurate checkout experiences.
+Allows users to manage delivery addresses for accurate and faster checkout.
 
 ---
 
@@ -140,7 +225,7 @@ Allows users to manage delivery addresses for faster and more accurate checkout 
 ### Features
 
 - Add new address  
-- Edit existing address  
+- Edit address  
 - Delete address  
 - Set default address  
 
@@ -148,9 +233,9 @@ Allows users to manage delivery addresses for faster and more accurate checkout 
 
 ### Logic
 
-- Default address used during checkout  
-- Address validation based on serviceability (pincode)  
-- At least one valid address required for order placement  
+- Default address used in checkout  
+- Address validation (pincode/serviceability)  
+- Minimum one address required  
 
 ---
 
@@ -158,7 +243,7 @@ Allows users to manage delivery addresses for faster and more accurate checkout 
 
 ### Overview
 
-Users can manage saved payment methods to enable faster and secure transactions.
+Users can manage saved payment methods for faster transactions.
 
 ---
 
@@ -173,15 +258,15 @@ Users can manage saved payment methods to enable faster and secure transactions.
 - View saved cards  
 - Add new card  
 - Delete card  
-- Mark default payment method  
+- Set default card  
 
 ---
 
 ### Logic
 
-- Expired cards cannot be used  
-- Secure storage of payment details (masked)  
-- Default payment method prioritized during checkout  
+- Expired cards disabled  
+- Card details masked  
+- Default card prioritized  
 
 ---
 
@@ -189,7 +274,7 @@ Users can manage saved payment methods to enable faster and secure transactions.
 
 ### Overview
 
-Allows users to save products for future consideration and quick access.
+Allows users to save and manage products for future purchase.
 
 ---
 
@@ -209,9 +294,8 @@ Allows users to save products for future consideration and quick access.
 
 ### Logic
 
-- Wishlist persists for logged-in users  
-- Items can be moved directly to cart  
-- Reflects real-time product availability  
+- Persisted for logged-in users  
+- Reflects product availability  
 
 ---
 
@@ -219,7 +303,7 @@ Allows users to save products for future consideration and quick access.
 
 ### Overview
 
-Users can view and update their personal profile details.
+Users can manage and update their profile details.
 
 ---
 
@@ -232,15 +316,15 @@ Users can view and update their personal profile details.
 ### Features
 
 - Edit name, phone, email  
-- Update address details  
-- Save profile changes  
+- Update address  
+- Save profile  
 
 ---
 
 ### Logic
 
-- Validation for email and phone format  
-- Changes reflected across system (orders, checkout)  
+- Input validation (email, phone)  
+- Changes reflected system-wide  
 
 ---
 
@@ -248,7 +332,7 @@ Users can view and update their personal profile details.
 
 ### Overview
 
-Provides users with assistance through chat and self-service help options.
+Provides assistance through chat and self-service help.
 
 ---
 
@@ -261,18 +345,18 @@ Provides users with assistance through chat and self-service help options.
 
 ### Features
 
-- Chat interface with support  
+- Chat interface  
 - Quick action queries  
 - FAQ access  
-- Media upload for issue reporting  
+- Media upload  
 
 ---
 
 ### Logic
 
-- Order-linked queries prioritized  
-- Chat escalation to agent when required  
-- FAQs reduce dependency on live support  
+- Order-based queries prioritized  
+- Escalation to agent when needed  
+- FAQ reduces dependency on support  
 
 ---
 
@@ -280,24 +364,27 @@ Provides users with assistance through chat and self-service help options.
 
 ### Overview
 
-Handles failures and exceptions across account functionalities to ensure a smooth and reliable user experience.
+Ensures system reliability by handling failures and invalid scenarios gracefully.
 
 ---
 
 ### Scenarios
 
-- Cancel option hidden after order is packed  
-- Return submission blocked without required inputs  
-- Expired cards disabled for selection  
-- Invalid address updates rejected  
-- Payment retry available for failed orders  
-- Support unavailable fallback (FAQ / retry)  
+- Cancel option hidden after packing  
+- Return blocked without required inputs  
+- Expired cards disabled  
+- Invalid address rejected  
+- Payment retry for failed orders  
+- Support fallback available  
 
 ---
 
 ### Product Thinking
 
-- Contextual actions reduce user confusion  
-- State-based controls prevent invalid operations  
-- Self-service flows reduce support dependency  
-- Clear feedback improves trust and usability  
+- Prevent invalid actions instead of showing errors  
+- State-driven UI decisions  
+- Self-service reduces support load  
+- Clear feedback improves trust  
+ 
+
+
