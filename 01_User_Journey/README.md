@@ -583,3 +583,116 @@ The address selection in checkout follows a two-step interaction model to ensure
 - Balances speed (default selection) with control (mandatory confirmation)
 - Improves delivery success rate and operational efficiency
 - Ensures critical data validation before payment
+
+### Coupons & Offers
+
+#### Overview
+
+The Coupons & Offers section enables users to apply discounts during checkout. It supports both manual coupon entry and selection from system-generated eligible offers to improve usability and conversion.
+
+---
+
+#### Wireframe
+
+![Coupons](coupons.png)
+
+---
+
+#### UI Components
+
+- Coupon input field (manual entry)
+- Apply CTA
+- Tabs:
+  - All Coupons
+  - Eligible Coupons
+  - Payment Offers
+- Coupon cards:
+  - Coupon code (e.g., SAVE100)
+  - Description (offer details)
+  - Apply / Applied CTA
+- Inactive coupons (grayed out)
+- Savings summary (e.g., “₹200 savings applied”)
+- Continue CTA
+
+---
+
+#### System Behavior
+
+- Users can apply coupons in two ways:
+
+  1. **Manual Entry:**
+     - User enters coupon code in input field
+     - Clicks "Apply"
+     - System validates and applies if eligible
+
+  2. **Selection from Available Coupons:**
+     - User views list of coupons
+     - Clicks "Apply" on a coupon card
+     - System validates and applies instantly
+
+- Eligible coupons are highlighted
+- Ineligible coupons are shown but disabled
+- Only one coupon can be applied at a time
+- Applying a coupon:
+  - Updates discount instantly
+  - Reflects in bill summary
+- Removing coupon recalculates total
+- Coupon state persists during checkout session
+
+---
+
+#### Business Logic
+
+- Coupon eligibility based on:
+  - Minimum cart value
+  - Product/category constraints
+  - User eligibility (e.g., first-time user)
+- Discount types:
+  - Flat discount (₹100 off)
+  - Percentage discount
+- Coupons may be:
+  - Auto-applied
+  - User-applied
+- Payment offers:
+  - Applied only when eligible payment method is used
+
+---
+
+#### Key Validations
+
+- Coupon must meet eligibility criteria
+- Only one coupon allowed at a time
+- Expired coupons cannot be applied
+- Invalid coupon code shows error
+- Coupon is revalidated on cart changes
+
+---
+
+#### Edge Cases
+
+- Coupon becomes invalid after cart update
+- Multiple coupons conflict
+- Coupon applied but payment method not eligible
+- Network failure during coupon validation
+- User navigates back and loses coupon state
+
+---
+
+#### Error Handling
+
+- Invalid coupon:
+  - Show inline error message
+- Expired coupon:
+  - Show “Coupon expired”
+- Ineligible coupon:
+  - Show reason (e.g., “Minimum order ₹1299 required”)
+
+---
+
+#### Product Thinking
+
+- Provides flexibility with manual and assisted coupon application
+- Encourages conversion through visible savings
+- Highlights best eligible coupons to reduce user effort
+- Uses inactive coupons to nudge higher cart value
+- Ensures pricing transparency and trust
