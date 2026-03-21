@@ -472,227 +472,44 @@ Authentication is required before checkout to capture user details, enable order
 - Ensures data capture before checkout
 - Minimizes drop-offs with seamless redirect post-login
 - Supports multiple login methods for flexibility
-### Address Selection & Validation
 
-#### Wireframe
+## 6. Checkout
 
-**Checkout – Initial State**
+### Overview
 
-![Select Address](address.png)
+Checkout is the final stage where users provide delivery details, apply offers, and complete payment.
 
-**Address Selection Screen**
+---
+
+### Wireframe
 
 ![Checkout Address Step](checkout_address.png)
----
 
-#### Overview
-
-The address selection in checkout follows a two-step interaction model to ensure delivery accuracy. While a default address is pre-selected for convenience, the user must explicitly confirm the address before proceeding.
-
----
-
-#### Interaction Flow
-
-1. User lands on checkout screen
-2. "Select Delivery Address" CTA is displayed
-3. User clicks CTA
-4. Address selection screen opens
-5. Default address is pre-selected
-6. User must explicitly confirm or change the address
-7. User clicks "Next" to proceed
-
----
-
-#### UI Components
-
-**Initial Checkout Screen:**
-- Cart summary
-- Coupons & offers section
-- Bill summary (subtotal, discount, shipping, total)
-- "Select Delivery Address" CTA
-- Continue CTA (disabled until address confirmed)
-
-**Address Selection Screen:**
-- List of saved addresses
-- Address label (Home, Office, etc.)
-- Full address details
-- Phone number
-- Pre-selected default address (radio button)
-- Edit address option
-- Delete address option
-- Add new address CTA
-- Navigation CTAs:
-  - Back
-  - Next
-
----
-
-#### System Behavior
-
-- Default address is pre-selected but NOT auto-confirmed
-- User must explicitly select/confirm an address
-- Only one address can be selected at a time
-- Clicking "Next" confirms address and returns to checkout
-- Checkout CTA is enabled only after address confirmation
-
----
-
-#### Validation Logic
-
-- Address confirmation is mandatory before proceeding
-- If user tries to proceed without selecting/confirming address:
-  - System blocks progression
-  - Displays inline error message:
-    **"Please select a delivery address to proceed"**
-
-- Validation is triggered on CTA click
-
----
-
-#### Error Handling (UX Behavior)
-
-- Error is shown inline near address section
-- No page refresh or disruptive UI behavior
-- No layout shifts ("jumpy" experience avoided)
-- Clear guidance provided to user
-
----
-
-#### Business Logic
-
-- Prevents incorrect order placement to unintended address
-- Reduces delivery failures and return-to-origin (RTO)
-- Ensures delivery feasibility before payment
-- Default selection improves speed, confirmation ensures accuracy
-
----
-
-#### Edge Cases
-
-- No saved addresses → force user to add new address
-- User deletes default address → next available becomes default
-- Address not serviceable (invalid pincode)
-- User edits address during checkout
-- Multiple similar addresses causing confusion
-
----
-
-#### Product Thinking
-
-- Uses a two-step confirmation model to reduce user errors
-- Balances speed (default selection) with control (mandatory confirmation)
-- Improves delivery success rate and operational efficiency
-- Ensures critical data validation before payment
-
-### Coupons & Offers
-
-#### Overview
-
-The Coupons & Offers section enables users to apply discounts during checkout. It supports both manual coupon entry and selection from system-generated eligible offers to improve usability and conversion.
-
----
-
-#### Wireframe
+![Select Address](address.png)
 
 ![Coupons](coupons.png)
 
 ---
 
-#### UI Components
+### Key Steps
 
-- Coupon input field (manual entry)
-- Apply CTA
-- Tabs:
-  - All Coupons
-  - Eligible Coupons
-  - Payment Offers
-- Coupon cards:
-  - Coupon code (e.g., SAVE100)
-  - Description (offer details)
-  - Apply / Applied CTA
-- Inactive coupons (grayed out)
-- Savings summary (e.g., “₹200 savings applied”)
-- Continue CTA
+- Address selection and confirmation
+- Coupon application (manual or from available list)
+- Pricing validation
+- Proceed to payment
 
 ---
 
-#### System Behavior
+### Key Behaviors
 
-- Users can apply coupons in two ways:
-
-  1. **Manual Entry:**
-     - User enters coupon code in input field
-     - Clicks "Apply"
-     - System validates and applies if eligible
-
-  2. **Selection from Available Coupons:**
-     - User views list of coupons
-     - Clicks "Apply" on a coupon card
-     - System validates and applies instantly
-
-- Eligible coupons are highlighted
-- Ineligible coupons are shown but disabled
-- Only one coupon can be applied at a time
-- Applying a coupon:
-  - Updates discount instantly
-  - Reflects in bill summary
-- Removing coupon recalculates total
-- Coupon state persists during checkout session
+- Login is mandatory before checkout
+- Default address is pre-selected but requires confirmation
+- User cannot proceed without selecting address
+- Coupons are applied based on eligibility
+- Pricing updates dynamically based on cart and offers
 
 ---
 
-#### Business Logic
+### Note
 
-- Coupon eligibility based on:
-  - Minimum cart value
-  - Product/category constraints
-  - User eligibility (e.g., first-time user)
-- Discount types:
-  - Flat discount (₹100 off)
-  - Percentage discount
-- Coupons may be:
-  - Auto-applied
-  - User-applied
-- Payment offers:
-  - Applied only when eligible payment method is used
-
----
-
-#### Key Validations
-
-- Coupon must meet eligibility criteria
-- Only one coupon allowed at a time
-- Expired coupons cannot be applied
-- Invalid coupon code shows error
-- Coupon is revalidated on cart changes
-
----
-
-#### Edge Cases
-
-- Coupon becomes invalid after cart update
-- Multiple coupons conflict
-- Coupon applied but payment method not eligible
-- Network failure during coupon validation
-- User navigates back and loses coupon state
-
----
-
-#### Error Handling
-
-- Invalid coupon:
-  - Show inline error message
-- Expired coupon:
-  - Show “Coupon expired”
-- Ineligible coupon:
-  - Show reason (e.g., “Minimum order ₹1299 required”)
-
----
-
-#### Product Thinking
-
-- Provides flexibility with manual and assisted coupon application
-- Encourages conversion through visible savings
-- Highlights best eligible coupons to reduce user effort
-- Uses inactive coupons to nudge higher cart value
-- Ensures pricing transparency and trust
+Detailed system behavior, validations and business logic are documented in the **Checkout_Experience** section.
