@@ -14,7 +14,7 @@ The Orders List provides a centralized view of all customer orders, enabling adm
 
 ### Wireframe
 
-![Orders List](../assets/admin_orders.png)
+![Orders List](admin_orders.png)
 
 #### Features
 
@@ -49,7 +49,7 @@ The Order Details screen acts as the operational control center for managing ind
 
 ### Wireframe
 
-![Order Details](../assets/admin_order_details.png)
+![Order Details](admin_order_details.png)
 
 #### Features
 
@@ -149,7 +149,7 @@ The Returns List provides visibility into all return requests and their refund s
 
 ### Wireframe
 
-![Returns List](../assets/admin_returns.png)
+![Returns List](admin_returns.png)
 
 #### Features
 
@@ -181,7 +181,7 @@ The Return Details screen acts as a multi-stakeholder decision hub.
 
 ### Wireframe
 
-![Return Details](../assets/admin__eturn_details.png)
+![Return Details](admin_return_details.png)
 
 #### Stakeholders
 
