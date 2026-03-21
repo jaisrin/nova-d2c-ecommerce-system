@@ -21,25 +21,51 @@ The Orders List provides a centralized view of all customer orders, enabling adm
 - View all orders in a tabular format  
 - Filter orders by status, payment, and date  
 - Search by Order ID or Customer  
-- Export order data  
+- Export order data (Excel format)  
 - Add manual orders  
 
 #### Actions
 
 - View Order Details  
 - Delete Order (restricted)  
+- Export Orders  
 
-#### Business Logic
+---
 
-- Orders are displayed in reverse chronological order  
-- Export respects applied filters  
-- Manual orders are used for offline or system recovery scenarios  
+### Export Orders
+
+Admins can export order data for reporting and analysis.
+
+#### Features
+
+- Export available in **Excel format (.xlsx)**  
+- Includes filtered dataset (if filters applied)  
+
+#### User Flow
+
+1. Admin clicks **Export**  
+2. System processes data  
+3. File is downloaded  
+
+#### Success State
+
+- Message: **"Export Successful"**  
+- CTA: Continue  
+
+#### Failure State
+
+- Message: **"Export Failed. Please try again."**  
+- CTA: Retry  
+
+#### System Behavior
+
+- Prevents duplicate export clicks while processing  
+- Handles large datasets efficiently  
 
 #### Purpose
 
-- Enables quick monitoring of order flow  
-- Reduces operational friction  
-- Provides a single entry point for order actions  
+- Enables offline analysis  
+- Supports reporting and audit use cases  
 
 ---
 
@@ -118,6 +144,10 @@ Admins can add notes directly within the Order Details screen.
 
 Order deletion is allowed only in exceptional scenarios.
 
+### Wireframe
+
+![Delete Order](admin_delete_order.png)
+
 #### Use Cases
 
 - Order created manually by mistake  
@@ -128,6 +158,23 @@ Order deletion is allowed only in exceptional scenarios.
 
 - Order is unpaid or pending  
 - Order is not shipped or delivered  
+
+#### User Flow
+
+1. Admin clicks delete  
+2. Confirmation modal appears  
+3. Admin confirms  
+4. Order is removed  
+
+#### Success State
+
+- Message: **"Delete Successful"**  
+- CTA: Continue  
+
+#### Failure State
+
+- Message: **"Unable to delete order. Please try again."**  
+- CTA: Retry  
 
 #### System Design
 
