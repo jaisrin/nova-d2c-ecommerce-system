@@ -14,7 +14,7 @@ The Orders List provides a centralized view of all customer orders, enabling adm
 
 ### Wireframe
 
-![Orders List](admin_orders.png)
+![Orders List](admin_order.png)
 
 #### Features
 
@@ -35,6 +35,11 @@ The Orders List provides a centralized view of all customer orders, enabling adm
 ### Export Orders
 
 Admins can export order data for reporting and analysis.
+
+### Wireframe
+
+![Export Orders](export_order.png)
+
 
 #### Features
 
@@ -146,7 +151,7 @@ Order deletion is allowed only in exceptional scenarios.
 
 ### Wireframe
 
-![Delete Order](admin_delete_order.png)
+![Delete Order](order_delete.png)
 
 #### Use Cases
 
@@ -196,7 +201,7 @@ The Returns List provides visibility into all return requests and their refund s
 
 ### Wireframe
 
-![Returns List](admin_returns.png)
+![Returns List](admin_return_list.png)
 
 #### Features
 
