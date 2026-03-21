@@ -169,7 +169,7 @@ The pricing module calculates the final payable amount based on cart value, disc
 
 ### Overview
 
-The payment step enables users to complete the transaction using multiple payment methods. It supports saved payment options, new payment entry, and real-time validation based on applied offers.
+The payment step enables users to complete the transaction using multiple payment methods. It supports saved payment options, new payment entry, OTP-based authentication, and real-time validation based on applied offers and business rules.
 
 ---
 
@@ -177,33 +177,66 @@ The payment step enables users to complete the transaction using multiple paymen
 
 ![Payment](payment.png)
 
+![OTP Screen](otp_payment.png)
+
+![Payment Failure](error_payment.png)
+
+---
+
+### UI Components
+
+**Delivery Summary:**
+- Selected delivery address
+- “Change Address” CTA (editable even at payment stage)
+
+**Payment Methods:**
+- Saved cards (masked)
+- Add new card
+- UPI (GPay, PhonePe, Paytm)
+- Net banking
+- Cash on Delivery (COD)
+
+**New Card Form:**
+- Cardholder name
+- Card number
+- Expiry (Month/Year)
+- CVV
+- Save card toggle
+
+**OTP Screen (if applicable):**
+- OTP input field
+- Verify CTA
+- Resend OTP option
+
+**CTA:**
+- Dynamic “Pay” button based on method
+
 ---
 
 ### System Behavior
 
 - User can:
-  - Select from saved payment methods
-  - Add a new payment method
-- Address can be changed directly from payment screen
-- Payment method selection updates applicable offers dynamically
-- On clicking “Pay”:
-  - Redirect to payment gateway (if applicable)
-  - Await success/failure response
+  - Select saved payment method
+  - Add a new method
+- Address can be edited during payment to reduce drop-offs
+- Payment method selection dynamically updates applicable offers
+
+**Payment Flow:**
+1. User clicks “Pay”
+2. Redirect to payment gateway (if required)
+3. OTP authentication triggered (for cards/secure payments)
+4. User enters OTP
+5. Gateway returns success/failure response
 
 ---
 
 ### Business Logic
 
-- Supports:
-  - Cards
-  - UPI
-  - Net Banking
-  - Cash on Delivery (COD)
-
+- Supported methods:
+  - Cards, UPI, Net Banking, COD
 - Prepaid incentives may apply
 - Bank/UPI offers:
-  - Applied only if correct payment method is used
-
+  - Valid only for eligible payment methods
 - Order is created only after successful payment (except COD)
 
 ---
@@ -211,62 +244,52 @@ The payment step enables users to complete the transaction using multiple paymen
 ### Validation Logic
 
 - Payment method selection is mandatory
-- Card details must be valid
-- If coupon is tied to a payment method:
+- Card details must be valid (format + expiry + CVV)
+- OTP must be correct for successful authentication
+
+**Coupon–Payment Dependency:**
+- If coupon is tied to specific payment method:
   - Validate against selected method
-  - Block or show error if mismatch
+  - Show error if mismatch:
+    **"Selected offer is not applicable for this payment method"**
 
 ---
 
 ### Error Handling
 
-- Payment failure → show retry option
-- Gateway timeout → show pending state
-- Coupon-payment mismatch:
-  **"Selected offer is not applicable for this payment method"**
-- Invalid card → field-level errors
+**Payment Failure Screen:**
+- Display clear failure message:
+  _“Oops! Your payment didn’t go through.”_
+- Provide options:
+  - Retry payment
+  - Try another payment method
+
+**OTP Errors:**
+- Invalid OTP → show inline error
+- Expired OTP → allow resend
+
+**Other Failures:**
+- Gateway timeout → show pending state + retry
+- Network failure → retry mechanism
 
 ---
 
 ### Edge Cases
 
-- Payment success but order not created
+- Payment success but order not created (requires reconciliation)
 - Double payment attempts
-- User exits mid-payment
-- Network failure
-- COD unavailable for location
-- Expired saved cards
+- User exits during OTP/payment
+- Network interruption during transaction
+- COD not available for certain locations/cart values
+- Saved card expired
+- OTP not received / delayed
 
 ---
 
-## 5. Order Confirmation
+### Product Thinking
 
-### Overview
-
-After successful payment, the system confirms the order and communicates it to the user.
-
----
-
-### System Behavior
-
-- Order ID generated
-- Confirmation screen displayed
-- Email/SMS sent
-- Invoice generated
-
----
-
-### Business Logic
-
-- Inventory deducted after payment
-- Order status set to "Placed"
-
----
-
-### Edge Cases
-
-- Payment success but confirmation fails
-- Notification failure
-- Duplicate order prevention
-
-
+- OTP adds security layer for transactions
+- Retry and alternate payment options reduce drop-offs
+- Allowing address edit at payment stage improves conversion
+- Clear failure messaging builds user trust
+- Validating coupon–payment dependency prevents misuse of offers
