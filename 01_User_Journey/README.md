@@ -293,3 +293,92 @@ The Product Detail Page (PDP) provides detailed information about a selected pro
 - Reduces uncertainty with delivery info
 - Encourages purchase through recommendations
 - Provides clear CTAs for both cart and instant purchase
+  ---
+
+## 4. Cart
+
+### Overview
+
+The Cart page allows users to review selected products, modify quantities and proceed towards checkout. It serves as the transition point from product exploration to purchase intent.
+
+---
+
+### Wireframe
+
+![Cart](cart.png)
+
+---
+
+### UI Components
+
+**Cart Items Section:**
+- Product image
+- Product name
+- Selected attributes (size, variant)
+- Price
+- Quantity selector (+ / -)
+- Remove item option
+
+**Order Summary Section:**
+- Subtotal
+- Shipping (calculated later)
+- Total amount
+- Coupon section (login gated)
+- Continue to Checkout CTA
+
+**Additional Information:**
+- Return policy
+- Shipping details
+
+---
+
+### System Behavior
+
+- Cart persists for logged-in users
+- Guest users can add and modify items in cart
+- Quantity updates dynamically update pricing
+- Removing item updates cart instantly
+- Clicking "Continue to checkout":
+  - If user NOT logged in → redirect to login/signup
+  - After login → redirect back to checkout
+- Coupon application enabled only after login
+
+---
+
+### Business Logic
+
+- Subtotal = sum of (price × quantity)
+- Shipping calculated at checkout stage
+- Coupons:
+  - Visible but restricted for guest users
+  - Applied only after authentication
+- Cart acts as a temporary state before order creation
+
+---
+
+### Key Validations
+
+- Quantity cannot be less than 1
+- Cannot proceed to checkout if cart is empty
+- Coupon cannot be applied without login
+- Price updates must reflect real-time changes
+
+---
+
+### Edge Cases
+
+- Cart is empty → show empty cart state with CTA
+- Item goes out of stock while in cart
+- Price changes before checkout
+- Coupon invalid after login
+- Cart data loss for guest users (session expiry)
+
+---
+
+### Product Thinking
+
+- Allows users to review and edit before committing
+- Introduces pricing transparency
+- Uses login gating strategically at checkout
+- Reduces friction by allowing guest browsing
+- Encourages conversion via clear CTA and summary
