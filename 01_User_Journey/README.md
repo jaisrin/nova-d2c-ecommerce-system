@@ -481,16 +481,6 @@ Checkout is the final stage where users provide delivery details, apply offers, 
 
 ---
 
-### Wireframe
-
-![Checkout Address Step](checkout_address.png)
-
-![Select Address](address.png)
-
-![Coupons](coupons.png)
-
----
-
 ### Key Steps
 
 - Address selection and confirmation
