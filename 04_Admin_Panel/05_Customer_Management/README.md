@@ -6,7 +6,7 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 ## Customers List
 
-![Customers](cx_list.png)
+![Customers](admin_customers.png)
 
 ### Features
 
@@ -15,12 +15,13 @@ The Customer Management module enables admins to view, manage, and analyze custo
 - Search and filter functionality  
 - Segmentation tabs (New, Returning, Region-based)  
 - Export customer data  
+- Status column (Active / Inactive)  
 
 ---
 
 ## Add Customer
 
-![Add Customer](manual_add_customer.png)
+![Add Customer](admin_add_customer.png)
 
 ### Features
 
@@ -33,7 +34,7 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 ## Customer Added Success
 
-![Success](cx_added_success_message.png)
+![Success](admin_customer_added_success.png)
 
 ### Features
 
@@ -44,7 +45,7 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 ## Customer Details
 
-![Customer Details](customer_detail.png)
+![Customer Details](admin_customer_details.png)
 
 ### Features
 
@@ -54,7 +55,24 @@ The Customer Management module enables admins to view, manage, and analyze custo
 - Add internal notes for tracking  
 - Tag customers (e.g., VIP, Region)  
 - Edit customer details  
-- Delete customer option  
+- Deactivate customer option  
+
+---
+
+## Customer Status Management
+
+Customers are managed using a **status-based approach** instead of deletion.
+
+### Status Types
+
+- Active  
+- Inactive  
+
+### Features
+
+- Admin can deactivate a customer  
+- Inactive customers cannot place new orders  
+- Customer data and order history remain intact  
 
 ---
 
@@ -62,8 +80,9 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 - Customer must have name and valid contact details  
 - Email should be unique per customer  
-- Orders are linked to customer profile  
-- Deleting customer should not delete order history  
+- Orders are permanently linked to customer profile  
+- Customers cannot be deleted to preserve transactional integrity  
+- Customers can be deactivated instead of deleted  
 
 ---
 
@@ -71,7 +90,7 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 - Email format validation  
 - Prevent duplicate email entries  
-- Mandatory fields validation  
+- Mandatory field validation  
 - Inline error messages for invalid inputs  
 
 ---
@@ -81,12 +100,31 @@ The Customer Management module enables admins to view, manage, and analyze custo
 - Duplicate email → blocked with validation error  
 - Missing contact details → prevent submission  
 - Customer with no orders → allowed  
-- Deleting customer with orders → require confirmation  
+- Deactivated customer → cannot place new orders  
+
+---
+
+## Design Decision: No Delete Option
+
+The system does not provide a delete option for customers.
+
+### Reasoning
+
+- Customer data is linked to orders and financial records  
+- Deleting a customer would break historical data integrity  
+- Audit and compliance requirements require retention of user data  
+- Customer insights and analytics depend on historical records  
+
+### Solution
+
+- A **deactivation model** is used instead of deletion  
+- Ensures data is preserved while restricting further activity  
 
 ---
 
 ## Purpose
 
 - Centralized customer data management  
-- Enables better customer tracking and segmentation  
-- Supports customer service and business insights  
+- Enables customer tracking and segmentation  
+- Supports customer service and operational decisions  
+- Ensures data integrity and compliance  
