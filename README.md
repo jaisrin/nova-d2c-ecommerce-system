@@ -1,2 +1,5 @@
 # Project-Nova-DTC-ecommerce 
-End-to-end Direct-to-Consumer (DTC) e-commerce product design covering the complete customer journey from product discovery to payment, along with checkout optimization, coupon and pricing logic, business rules, edge case handling, and admin workflows for order, inventory, and offer management.
+
+A comprehensive DTC e-commerce platform design covering the full customer journey—from product discovery to checkout and payment—supported by well-defined business logic for pricing, coupons and order processing.
+
+The system also includes admin workflows for managing customers, orders, inventory, reports and promotions with a strong focus on system behavior, edge case handling, data integrity and operational scalability.
