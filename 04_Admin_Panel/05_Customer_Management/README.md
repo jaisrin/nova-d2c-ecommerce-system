@@ -89,7 +89,7 @@ Instead of deletion, a **controlled deactivation mechanism** was introduced.
 
 ---
 
-## ⚙️ System & Business Logic
+##  System & Business Logic
 
 - Customers are created with **unique email and phone**
 - All customer data is persistent (no deletion allowed)
@@ -99,7 +99,7 @@ Instead of deletion, a **controlled deactivation mechanism** was introduced.
 
 ---
 
-## 🚨 Edge Case Handling
+## Edge Case Handling
 
 - Duplicate entries → blocked via validation  
 - Missing mandatory fields → prevent submission  
@@ -109,7 +109,7 @@ Instead of deletion, a **controlled deactivation mechanism** was introduced.
 
 ---
 
-## 🔐 Access Control
+##  Access Control
 
 | Role             | View | Add | Deactivate |
 |------------------|------|-----|------------|
