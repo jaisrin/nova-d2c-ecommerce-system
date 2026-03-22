@@ -105,4 +105,29 @@ The Products module enables admins to create, manage, and maintain the product c
 
 - Centralized catalog management  
 - Supports product lifecycle from creation to deletion  
-- Enables business teams to manage inventory and pricing efficiently  
+- Enables business teams to manage inventory and pricing efficiently
+
+---
+
+## Business Logic
+
+- Product must have a name and price to be created  
+- Discount price cannot exceed actual price  
+- At least one image is required  
+- Variants must be defined before assigning values  
+- Categories must exist before assigning to product
+
+## Edge Cases
+
+- Missing mandatory fields → show validation errors  
+- Invalid pricing (discount > price) → block submission  
+- No images uploaded → prevent product creation  
+- Duplicate product names → allow but flag (optional)  
+- Large image uploads → handle with size restrictions
+
+## System Behavior
+
+- Changes are saved only on explicit action (Save Product)  
+- Product appears in list immediately after creation  
+- Deleted products are removed from active catalog  
+- Export reflects latest product data  
