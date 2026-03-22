@@ -6,7 +6,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Empty State
 
-![Empty State](admin_categories_empty.png)
+![Empty State](empty_state_category.png)
 
 ### Features
 
@@ -18,7 +18,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Categories List
 
-![Categories List](admin_categories.png)
+![Categories List](product_category.png)
 
 ### Features
 
@@ -31,7 +31,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Add Category
 
-![Add Category](admin_add_category.png)
+![Add Category](add_category.png)
 
 ### Features
 
@@ -43,7 +43,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Edit Category
 
-![Edit Category](admin_edit_category.png)
+![Edit Category](edit_category.png)
 
 ### Features
 
@@ -56,7 +56,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Category Created Success
 
-![Success](admin_category_created_success.png)
+![Success](category_created_message.png)
 
 ### Features
 
@@ -67,7 +67,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Delete Category
 
-![Delete Confirmation](admin_delete_category.png)
+![Delete Confirmation](delete_confirmation.png)
 
 ### Features
 
@@ -78,7 +78,7 @@ The Categories module enables admins to organize products into structured groups
 
 ## Delete Success
 
-![Delete Success](admin_delete_category_success.png)
+![Delete Success](delete_successful_message.png)
 
 ### Features
 
