@@ -17,7 +17,7 @@ The Products module enables admins to create, manage, and maintain the product c
 
 ## Product List
 
-![Product List](admin_product.png)
+![Product List](admin_product_list.png)
 
 ### Features
 
