@@ -83,7 +83,7 @@ The Products module enables admins to create, manage, and maintain the product c
 
 ## Delete Product
 
-![Delete](admin_delete_product.png)
+![Delete](delete_product.png)
 
 ### Features
 
