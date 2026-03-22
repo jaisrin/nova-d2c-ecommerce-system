@@ -1,130 +1,160 @@
-# Customer Management
+# Customer Management Module
 
-The Customer Management module enables admins to view, manage, and analyze customer information, including order history, contact details, and engagement.
+## Overview
+
+The Customer Management module was designed to provide a centralized system for managing customer data across the lifecycle — from onboarding to status control — while ensuring data integrity, operational efficiency, and compliance.
+
+This module enables admin teams to efficiently manage customers, reduce data inconsistencies, and handle risk scenarios such as fraud or duplicate accounts.
+
+Designed a **status-driven Customer Management system** with:
+
+- Centralized customer database  
+- Controlled onboarding (manual add with validations)  
+- Detailed customer profiles  
+- Structured deactivation mechanism instead of deletion  
+- Full audit trail for all actions  
+
+---
+
+## Key Features
 
 ---
 
 ## Customers List
 
-![Customers](admin_customers.png)
+![Customers](customer_list.png)
 
-### Features
-
-- View all customers in a tabular format  
-- Displays name, location, number of orders, total spend  
-- Search and filter functionality  
-- Segmentation tabs (New, Returning, Region-based)  
-- Export customer data  
-- Status column (Active / Inactive)  
+- Centralized view of all customers  
+- Search and filter capabilities  
+- Segmentation (New, Returning, Region-based)  
+- Status visibility (Active / Deactivated)  
+- Quick navigation to customer details  
 
 ---
 
 ## Add Customer
 
-![Add Customer](admin_add_customer.png)
+![Add Customer](manual_add_customer.png)
 
-### Features
-
-- Add basic customer details (name, email, phone)  
-- Add address information  
-- Add internal notes  
-- Manual onboarding of customers  
-
----
-
-## Customer Added Success
-
-![Success](admin_customer_added_success.png)
-
-### Features
-
-- Confirmation after successful creation  
-- Visual success feedback  
+- Manual onboarding with validation  
+- Ensures clean and structured data entry  
+- Prevents duplicate customer creation  
 
 ---
 
 ## Customer Details
 
-![Customer Details](admin_customer_details.png)
+![Customer Details](customer_detail.png)
+
+- Complete customer profile view  
+- Order history and engagement tracking  
+- Internal notes and tagging for better segmentation  
+- Actionable controls (Edit, Deactivate)  
+
+---
+
+## Deactivate Customer
+
+![Deactivate Customer](deactivate_customer_modal.png)
+
+### Why this feature?
+
+Deleting customers creates major risks:
+- Breaks linkage with orders and financial data  
+- Violates audit and compliance requirements  
+- Removes valuable historical insights  
+
+At the same time, not having control over problematic users (fraud, duplicates, misuse) creates operational and risk issues.
+
+### Solution Approach
+
+Instead of deletion, a **controlled deactivation mechanism** was introduced.
 
 ### Features
 
-- View complete customer profile  
-- Customer metadata (location, tenure, rating)  
-- Order history with status and pricing  
-- Add internal notes for tracking  
-- Tag customers (e.g., VIP, Region)  
-- Edit customer details  
-- Deactivate customer option  
+- Mandatory reason selection:
+  - Fraudulent activity  
+  - Duplicate account  
+  - Customer request  
+  - Policy violation  
+- Optional notes for audit clarity  
+- Immediate restriction of access and activity  
+
+### Impact
+
+- Preserves data integrity  
+- Enables risk control without data loss  
+- Provides traceability for all actions  
+- Supports compliance requirements  
 
 ---
 
-## Customer Status Management
+## ⚙️ System & Business Logic
 
-Customers are managed using a **status-based approach** instead of deletion.
-
-### Status Types
-
-- Active  
-- Inactive  
-
-### Features
-
-- Admin can deactivate a customer  
-- Inactive customers cannot place new orders  
-- Customer data and order history remain intact  
+- Customers are created with **unique email and phone**
+- All customer data is persistent (no deletion allowed)
+- Deactivation updates status and restricts access
+- Orders remain permanently linked to customers
+- All actions are logged for audit purposes
 
 ---
 
-## Business Logic
+## 🚨 Edge Case Handling
 
-- Customer must have name and valid contact details  
-- Email should be unique per customer  
-- Orders are permanently linked to customer profile  
-- Customers cannot be deleted to preserve transactional integrity  
-- Customers can be deactivated instead of deleted  
-
----
-
-## Validation & Error Handling
-
-- Email format validation  
-- Prevent duplicate email entries  
-- Mandatory field validation  
-- Inline error messages for invalid inputs  
+- Duplicate entries → blocked via validation  
+- Missing mandatory fields → prevent submission  
+- Already deactivated customer → action restricted  
+- Ongoing activity → warning before deactivation  
+- System failures → safe error handling without data corruption  
 
 ---
 
-## Edge Cases
+## 🔐 Access Control
 
-- Duplicate email → blocked with validation error  
-- Missing contact details → prevent submission  
-- Customer with no orders → allowed  
-- Deactivated customer → cannot place new orders  
-
----
-
-## Design Decision: No Delete Option
-
-The system does not provide a delete option for customers.
-
-### Reasoning
-
-- Customer data is linked to orders and financial records  
-- Deleting a customer would break historical data integrity  
-- Audit and compliance requirements require retention of user data  
-- Customer insights and analytics depend on historical records  
-
-### Solution
-
-- A **deactivation model** is used instead of deletion  
-- Ensures data is preserved while restricting further activity  
+| Role             | View | Add | Deactivate |
+|------------------|------|-----|------------|
+| Support Agent     | ✅   | ❌  | ❌         |
+| Ops Executive     | ✅   | ✅  | ✅         |
+| Risk Team         | ✅   | ❌  | ✅         |
+| Super Admin       | ✅   | ✅  | ✅         |
 
 ---
 
-## Purpose
+## Metrics & Success Indicators 
 
-- Centralized customer data management  
-- Enables customer tracking and segmentation  
-- Supports customer service and operational decisions  
-- Ensures data integrity and compliance  
+### Data Quality
+- Improved data consistency and accuracy  
+- Lower validation error rates over time  
+
+### Risk & Compliance
+- Increased tracking of fraud and policy violations  
+- 100% audit logging of critical actions  
+
+### Product Impact
+- Better customer segmentation and insights  
+- Improved admin productivity  
+- Safer handling of customer lifecycle  
+
+---
+
+## Key Design Decisions
+
+### 1. No Delete Option
+- Ensures historical and financial data integrity  
+- Meets compliance and audit requirements  
+
+### 2. Status-Based Model
+- Allows controlled restriction without data loss  
+- Supports lifecycle management  
+
+### 3. Mandatory Reason for Deactivation
+- Enables accountability and traceability  
+- Helps in risk analysis and reporting  
+
+---
+
+## Outcome
+
+This module creates a **scalable, compliant, and efficient system** for managing customers, balancing operational needs with data integrity and risk control.
+
+---
