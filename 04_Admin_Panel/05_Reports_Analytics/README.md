@@ -173,7 +173,7 @@ Customer segmentation based on age groups.
 
 ## Export Reports
 
-![Export](report_export.png)
+![Export](reports_export.png)
 
 ### Features
 
