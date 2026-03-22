@@ -5,7 +5,7 @@ The Products module enables admins to create, manage, and maintain the product c
 ---
 ## Empty State
 
-![Empty State](admin_empty_state.png)
+![Empty State](empty_state_add_product.png)
 
 ### Features
 
@@ -17,7 +17,7 @@ The Products module enables admins to create, manage, and maintain the product c
 
 ## Product List
 
-![Product List](admin_products.png)
+![Product List](admin_product.png)
 
 ### Features
 
@@ -31,7 +31,7 @@ The Products module enables admins to create, manage, and maintain the product c
 
 ## Add Product
 
-![Add Product](admin_add_product.png)
+![Add Product](add_product.png)
 
 ### Sections
 
@@ -72,7 +72,7 @@ The Products module enables admins to create, manage, and maintain the product c
 
 ## Product Added Success
 
-![Success](admin_product_added_success.png)
+![Success](product_added_message.png)
 
 ### Features
 
