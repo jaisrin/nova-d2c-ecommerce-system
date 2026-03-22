@@ -1,12 +1,12 @@
 ## Product Overview (Nova DTC E-commerce)
 
-Project NOVA CART is a Direct-to-Consumer (DTC) e-commerce platform designed to enable brands to sell directly to customers, eliminating dependency on third-party marketplaces and improving customer experience, data ownership, and profitability.
+Project NOVA CART is a Direct-to-Consumer (DTC) e-commerce platform designed to enable brands to sell directly to customers, eliminating dependency on third-party marketplaces and improving customer experience, data ownership and profitability.
 
 ---
 
 ### Business Problem Statement
 
-The organization currently relies heavily on third-party marketplaces, resulting in reduced profit margins, limited access to customer data, lack of personalization, and dependency on external policies.
+The organization currently relies heavily on third-party marketplaces, resulting in reduced profit margins, limited access to customer data, lack of personalization and dependency on external policies.
 
 This creates a need for a unified DTC platform that provides complete ownership of the customer journey and enables scalable business growth.
 
