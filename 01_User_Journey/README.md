@@ -1,6 +1,6 @@
 ## User Journey Overview
 
-This section outlines the end-to-end customer journey across the platform, covering discovery, purchase, and post-purchase lifecycle.
+This section outlines the end-to-end customer journey across the platform, covering discovery, purchase and post-purchase lifecycle.
 
 ---
 
@@ -14,7 +14,7 @@ Homepage → Product Listing → Product Detail → Cart → Authentication → 
 
 ### Overview
 
-The homepage serves as the primary entry point for users, enabling product discovery, category navigation, and promotional engagement.
+The homepage serves as the primary entry point for users, enabling product discovery, category navigation and promotional engagement.
 
 ---
 
@@ -93,7 +93,7 @@ The homepage serves as the primary entry point for users, enabling product disco
 
 ### Overview
 
-The Product Listing Page (PLP) displays a collection of products based on selected category, search query, or applied filters. It enables users to browse, refine, and compare products efficiently before proceeding to product detail.
+The Product Listing Page (PLP) displays a collection of products based on selected category, search query or applied filters. It enables users to browse, refine and compare products efficiently before proceeding to product detail.
 
 ---
 
@@ -191,7 +191,7 @@ The Product Listing Page (PLP) displays a collection of products based on select
 
 ### Overview
 
-The Product Detail Page (PDP) provides detailed information about a selected product, enabling users to evaluate, compare, and make purchase decisions. It is a critical conversion point in the user journey.
+The Product Detail Page (PDP) provides detailed information about a selected product, enabling users to evaluate, compare and make purchase decisions. It is a critical conversion point in the user journey.
 
 ---
 
@@ -388,7 +388,7 @@ The Cart page allows users to review selected products, modify quantities and pr
 
 ### Overview
 
-Authentication is required before checkout to capture user details, enable order tracking, and ensure a seamless purchase experience. Users can browse and add items to cart as guests, but must log in to proceed with checkout.
+Authentication is required before checkout to capture user details, enable order tracking and ensure a seamless purchase experience. Users can browse and add items to cart as guests but must log in to proceed with checkout.
 
 ---
 
@@ -477,7 +477,7 @@ Authentication is required before checkout to capture user details, enable order
 
 ### Overview
 
-Checkout is the final stage where users provide delivery details, apply offers, and complete payment.
+Checkout is the final stage where users provide delivery details, apply offers and complete payment.
 
 ---
 
