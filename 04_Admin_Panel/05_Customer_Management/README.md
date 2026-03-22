@@ -6,7 +6,7 @@ The Customer Management module enables admins to view, manage, and analyze custo
 
 ## Customers List
 
-![Customers](customer_list.png)
+![Customers](cx_list.png)
 
 ### Features
 
