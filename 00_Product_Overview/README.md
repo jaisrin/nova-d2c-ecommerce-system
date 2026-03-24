@@ -3,7 +3,7 @@
 ## Overview  
 Nova is an end-to-end Direct-to-Consumer (D2C) e-commerce system designed to streamline the complete customer journey — from product discovery to order fulfillment and tracking.
 
-This project demonstrates a structured approach to system design, combining business logic, user experience, and operational workflows to build a scalable D2C platform.
+This project demonstrates a structured approach to system design, combining business logic, user experience and operational workflows to build a scalable D2C platform.
 
 ---
 
@@ -86,10 +86,10 @@ The project is organized to reflect a structured Business Analysis approach:
 - 00_Business_Context → Problem, objectives, scope, and business understanding  
 - 01_User_Journey → End-to-end customer flow from discovery to post-purchase  
 - 02_Checkout_Experience → Cart, checkout, and payment flow design  
-- 03_Account_Management → User profile, orders, and account features  
+- 03_Account_Management → User profile, orders and account features  
 - 04_Admin_Panel → Backend workflows for managing products and orders  
 
 Each section contains detailed documentation, flows, and system logic
 
 ## Note  
-This project focuses on Business Analysis, system thinking, and user experience design.
+This project focuses on Business Analysis, system thinking and user experience design.
