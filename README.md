@@ -1,5 +1,7 @@
-# Project-Nova-DTC-ecommerce 
+# Nova – D2C E-commerce System
 
-A comprehensive DTC e-commerce platform design covering the full customer journey—from product discovery to checkout and payment—supported by well-defined business logic for pricing, coupons and order processing.
+A Business Analyst case study focused on designing an end-to-end Direct-to-Consumer (D2C) e-commerce system.
 
-The system also includes admin workflows for managing customers, orders, inventory, reports and promotions with a strong focus on system behavior, edge case handling, data integrity and operational scalability.
+This project covers the complete customer journey—from product discovery to checkout and order fulfillment—supported by structured business logic, user flows and operational workflows.
+
+It also includes admin-side processes for managing products, orders, inventory and promotions with a strong emphasis on system behavior, edge case handling and scalability.
