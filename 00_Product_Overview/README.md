@@ -1,93 +1,95 @@
-## Product Overview (Nova DTC E-commerce)
+# Nova – D2C E-commerce System
 
-Project NOVA CART is a Direct-to-Consumer (DTC) e-commerce platform designed to enable brands to sell directly to customers, eliminating dependency on third-party marketplaces and improving customer experience, data ownership and profitability.
+## Overview  
+Nova is an end-to-end Direct-to-Consumer (D2C) e-commerce system designed to streamline the complete customer journey — from product discovery to order fulfillment and tracking.
 
----
-
-### Business Problem Statement
-
-The organization currently relies heavily on third-party marketplaces, resulting in reduced profit margins, limited access to customer data, lack of personalization and dependency on external policies.
-
-This creates a need for a unified DTC platform that provides complete ownership of the customer journey and enables scalable business growth.
+This project demonstrates a structured approach to system design, combining business logic, user experience, and operational workflows to build a scalable D2C platform.
 
 ---
 
-### Business Objectives
+## My Role  
+Business Analyst
 
-- Increase direct sales revenue by 40% within Year 1  
-- Improve customer retention by 25%  
-- Reduce marketplace commission costs by 15%  
-- Achieve 99.9% platform uptime  
-- Enable personalized marketing using first-party data  
-
----
-
-### Scope
-
-**In Scope:**
-- User registration and authentication  
-- Product catalog and discovery  
-- Cart and checkout  
-- Payment processing  
-- Order management  
-- Returns and refunds  
-- Admin panel and reporting  
-
-**Out of Scope:**
-- Marketplace integrations (Amazon, Flipkart)  
+- Defined end-to-end user journeys across the platform  
+- Created user stories and acceptance criteria  
+- Designed wireframes and system flows to define user interaction 
+- Structured business rules and handled edge cases  
 
 ---
 
-### Key Modules
+## Problem Statement  
 
-- User Journey (Discovery to Post-purchase)  
-- Checkout Experience  
-- Coupon & Pricing Logic  
-- User Account Management  
-- Admin Workflows  
-- Returns & Refunds System  
+Traditional e-commerce systems often face:
+- Fragmented user journeys  
+- Inefficient order tracking  
+- Lack of clearly defined system workflows  
+
+This results in poor user experience and operational inefficiencies across the system
 
 ---
 
-### System Integration & Technical Alignment
+## Solution Approach  
 
-The platform integrates with:
+- Designed a complete customer journey from discovery to delivery  
+- Structured backend logic for the order lifecycle  
+- Built admin workflows for managing products and orders  
+- Incorporated edge cases to handle real-world scenarios  
 
-- Payment gateways for transaction processing  
-- Inventory systems for real-time stock validation  
-- Logistics partners for shipment tracking  
-- CRM systems for customer data and personalization  
-- Notification systems (Email, SMS, Push)  
+---
+
+## Key Features  
+
+- Product discovery and categorization  
+- Cart and checkout experience  
+- Order placement and tracking  
+- Customer account management  
 - Admin panel for operational control  
 
 ---
 
-### Success Metrics
+## System Scope  
 
-- Conversion Rate > 3%  
-- Cart Abandonment Rate < 60%  
-- Average Order Value (AOV) > $75  
-- Repeat Purchase Rate > 30%  
-- Refund Rate < 10%  
+### User Side:
+- Browse products  
+- Add to cart  
+- Place orders  
+- Track orders  
 
----
-
-### End-to-End Workflow Overview
-
-1. User browses products (Homepage → PLP → PDP)  
-2. Adds items to cart  
-3. Proceeds to checkout  
-4. System validates inventory and pricing  
-5. Payment is processed  
-6. Order is created  
-7. Inventory is updated  
-8. Order is fulfilled and shipped  
-9. Delivery completed  
-10. Return initiated (if applicable)  
-11. Refund processed  
+### Admin Side:
+- Manage products  
+- Process orders  
+- Monitor customer activity  
 
 ---
 
-### Full Business Requirements Document (BRD)
+## Artifacts Included  
 
-[View Complete BRD](./BRD/Business_Requirements_Document.pdf)
+- Wireframes (UI structure and interaction design)  
+- User journey flows (end-to-end customer experience)  
+- Business logic documentation (pricing, checkout, order lifecycle)  
+- Edge case handling (failure scenarios and validations)  
+- Business Requirements Document (BRD)
+
+---
+
+## Outcome  
+
+Designed a scalable, user-centric D2C system that enhances customer experience while improving operational efficiency and system clarity.
+
+---
+
+}
+## Repository Structure  
+
+The project is organized to reflect a structured Business Analysis approach:
+
+- 00_Business_Context → Problem, objectives, scope, and business understanding  
+- 01_User_Journey → End-to-end customer flow from discovery to post-purchase  
+- 02_Checkout_Experience → Cart, checkout, and payment flow design  
+- 03_Account_Management → User profile, orders, and account features  
+- 04_Admin_Panel → Backend workflows for managing products and orders  
+
+Each section contains detailed documentation, flows, and system logic
+
+## Note  
+This project focuses on Business Analysis, system thinking, and user experience design.
