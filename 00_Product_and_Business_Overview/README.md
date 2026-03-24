@@ -72,11 +72,11 @@ This results in poor user experience and operational inefficiencies across the s
 
 ---
 
-## Documentation
+## 📂 Documentation
 
-- Business Requirements Document (BRD) – [View Documentation](./00_Product_and_Business_Overview/BRD.pdf)
+- Business Requirements Document (BRD) – [View](./BRD.pdf)
 
-- User Stories & Acceptance Criteria – [View File](./00_Product_and_Business_Overview/Nova_d2C_ecommerce.xlsx)
+- User Stories & Acceptance Criteria – [View](./Nova_d2C_ecommerce.xlsx)
 
 ---
 
