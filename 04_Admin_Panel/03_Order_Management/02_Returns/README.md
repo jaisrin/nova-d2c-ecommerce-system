@@ -7,7 +7,7 @@ The Returns List provides visibility into all return requests and their refund s
 
 ### Wireframe
 
-![Returns List](admin_return_list.png)
+![Returns List](admin_returns.png)
 
 #### Features
 
