@@ -74,9 +74,9 @@ This results in poor user experience and operational inefficiencies across the s
 
 ## Documentation
 
-- Business Requirements Document (BRD) – [View Documentation](./00_Product_and_Business_Overview/Documentation/BRD.pdf)
+- Business Requirements Document (BRD) – [View Documentation](./00_Product_and_Business_Overview/BRD.pdf)
 
-- User Stories & Acceptance Criteria – [View File](./00_Product_and_Business_Overview/Documentation/Nova_d2C_ecommerce.xlsx)
+- User Stories & Acceptance Criteria – [View File](./00_Product_and_Business_Overview/Nova_d2C_ecommerce.xlsx)
 
 ---
 
