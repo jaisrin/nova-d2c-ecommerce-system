@@ -72,13 +72,21 @@ This results in poor user experience and operational inefficiencies across the s
 
 ---
 
+## Documentation
+
+- Business Requirements Document (BRD) – [View Documentation](./00_Product_and_Business_Overview/Documentation/BRD.pdf)
+
+- User Stories & Acceptance Criteria – [View File](./00_Product_and_Business_Overview/Documentation/Nova_d2C_ecommerce.xlsx)
+
+---
+
 ## Outcome  
 
 Designed a scalable, user-centric D2C system that enhances customer experience while improving operational efficiency and system clarity.
 
 ---
 
-}
+
 ## Repository Structure  
 
 The project is organized to reflect a structured Business Analysis approach:
