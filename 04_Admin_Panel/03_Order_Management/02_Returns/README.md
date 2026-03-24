@@ -7,7 +7,7 @@ The Returns List provides visibility into all return requests and their refund s
 
 ### Wireframe
 
-![Returns List](admin_returns.png)
+![Return Details](admin_return_details.png)
 
 #### Features
 
@@ -39,7 +39,7 @@ The Return Details screen acts as a multi-stakeholder decision hub.
 
 ### Wireframe
 
-![Return Details](admin_return_details.png)
+![Returns List](admin_returns.png)
 
 #### Stakeholders
 
