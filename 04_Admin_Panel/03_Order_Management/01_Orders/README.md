@@ -151,7 +151,7 @@ Order deletion is allowed only in exceptional scenarios.
 
 ### Wireframe
 
-![Delete Order](order_delete.png)
+![Delete Order](admin_delete_order.png)
 
 #### Use Cases
 
