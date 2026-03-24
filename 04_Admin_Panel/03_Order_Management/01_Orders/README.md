@@ -38,7 +38,7 @@ Admins can export order data for reporting and analysis.
 
 ### Wireframe
 
-![Export Orders](export_order.png)
+![Export Orders](admin_export_orders_success.png)
 
 
 #### Features
