@@ -1,6 +1,6 @@
 # Nova – D2C E-commerce System
 
-A Business Analyst case study focused on designing an end-to-end Direct-to-Consumer (D2C) e-commerce system.
+A case study focused on designing an end-to-end Direct-to-Consumer (D2C) e-commerce system.
 
 This project covers the complete customer journey—from product discovery to checkout and order fulfillment—supported by structured business logic, user flows and operational workflows.
 
